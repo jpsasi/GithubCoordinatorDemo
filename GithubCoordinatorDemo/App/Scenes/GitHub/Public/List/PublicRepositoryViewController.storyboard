@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Public Repository View Controller-->
+        <scene sceneID="e35-MK-hdC">
+            <objects>
+                <viewController storyboardIdentifier="PublicRepositoryViewController" id="wza-sT-iEa" customClass="PublicRepositoryViewController" customModule="GithubCoordinatorDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SxY-SQ-UcA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uiS-zH-fIn">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PublicRepositoryCell" rowHeight="65" id="C9c-Xt-6Ev" customClass="PublicRepositoryTableViewCell" customModule="GithubCoordinatorDemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C9c-Xt-6Ev" id="kt1-dF-7aO">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wRQ-B0-5Jf">
+                                                    <rect key="frame" x="20" y="7.5" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="4Yb-m5-BQp"/>
+                                                        <constraint firstAttribute="height" constant="50" id="UEZ-AP-Shz"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8t-XD-mfn">
+                                                    <rect key="frame" x="78" y="8" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDj-14-jGt">
+                                                    <rect key="frame" x="78" y="37.5" width="328" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="zDj-14-jGt" secondAttribute="bottom" constant="8" id="4I6-nC-XeP"/>
+                                                <constraint firstItem="zDj-14-jGt" firstAttribute="top" secondItem="O8t-XD-mfn" secondAttribute="bottom" constant="8.5" id="4dc-dQ-W1O"/>
+                                                <constraint firstItem="O8t-XD-mfn" firstAttribute="top" secondItem="kt1-dF-7aO" secondAttribute="top" constant="8" id="JlP-U1-AYf"/>
+                                                <constraint firstItem="O8t-XD-mfn" firstAttribute="leading" secondItem="wRQ-B0-5Jf" secondAttribute="trailing" constant="8" symbolic="YES" id="TYh-fw-ciQ"/>
+                                                <constraint firstItem="wRQ-B0-5Jf" firstAttribute="leading" secondItem="kt1-dF-7aO" secondAttribute="leading" constant="20" id="a5o-nz-Hxe"/>
+                                                <constraint firstItem="zDj-14-jGt" firstAttribute="leading" secondItem="wRQ-B0-5Jf" secondAttribute="trailing" constant="8" symbolic="YES" id="hwc-Ot-FGa"/>
+                                                <constraint firstItem="wRQ-B0-5Jf" firstAttribute="centerY" secondItem="kt1-dF-7aO" secondAttribute="centerY" id="m8a-Qs-5xe"/>
+                                                <constraint firstAttribute="trailing" secondItem="zDj-14-jGt" secondAttribute="trailing" constant="8" id="u0p-BB-1cH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="zDj-14-jGt" id="nDS-j0-o5H"/>
+                                            <outlet property="repositoryNameLabel" destination="O8t-XD-mfn" id="UOd-Bg-pR8"/>
+                                            <outlet property="thumbnailImageView" destination="wRQ-B0-5Jf" id="r7u-mL-cKV"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="LoadingIndicatorTableViewCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PublicRepositoryLoadingCell" rowHeight="68" id="OAi-p4-Gxb" customClass="LoadingIndicatorTableViewCell" customModule="GithubCoordinatorDemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="93" width="414" height="68"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OAi-p4-Gxb" id="wk6-SF-Zos">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="gzG-Cj-Rvc">
+                                                    <rect key="frame" x="197" y="24" width="20" height="20"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="gzG-Cj-Rvc" firstAttribute="centerY" secondItem="wk6-SF-Zos" secondAttribute="centerY" id="WCa-9h-TTD"/>
+                                                <constraint firstItem="gzG-Cj-Rvc" firstAttribute="centerX" secondItem="wk6-SF-Zos" secondAttribute="centerX" id="se3-0R-QLs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="activityIndicatorView" destination="gzG-Cj-Rvc" id="eLS-wH-vaE"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="wza-sT-iEa" id="Bfv-iO-Urc"/>
+                                    <outlet property="delegate" destination="wza-sT-iEa" id="09f-Zd-1ZJ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="919-l2-DZW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uiS-zH-fIn" firstAttribute="leading" secondItem="919-l2-DZW" secondAttribute="leading" id="2fc-fW-T4d"/>
+                            <constraint firstItem="uiS-zH-fIn" firstAttribute="top" secondItem="SxY-SQ-UcA" secondAttribute="top" id="MFY-yT-sdS"/>
+                            <constraint firstItem="919-l2-DZW" firstAttribute="trailing" secondItem="uiS-zH-fIn" secondAttribute="trailing" id="Wzt-iU-a52"/>
+                            <constraint firstAttribute="bottom" secondItem="uiS-zH-fIn" secondAttribute="bottom" id="vpr-Cd-5FD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="uiS-zH-fIn" id="c3o-kE-Uow"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mbv-Ft-L8c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-220.28985507246378" y="164.73214285714286"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
