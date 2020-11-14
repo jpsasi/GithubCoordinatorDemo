@@ -13,7 +13,7 @@ struct Repository : Codable {
     let name: String
     let fullName: String
     let `private`: Bool
-    let description: String
+    let description: String?
     let owner: Owner
     
     struct Owner : Codable {

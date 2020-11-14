@@ -146,6 +146,13 @@
 			path = List;
 			sourceTree = "<group>";
 		};
+		910CED5225595E94009CEF83 /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Functions;
+			sourceTree = "<group>";
+		};
 		9174B73C25564F970010EB86 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +164,7 @@
 		9174B7512556529B0010EB86 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				910CED5225595E94009CEF83 /* Functions */,
 				910CED222557FCF5009CEF83 /* UI */,
 				9174B752255652AF0010EB86 /* Storyboarded.swift */,
 				910CED132556EB70009CEF83 /* Decodable.swift */,
