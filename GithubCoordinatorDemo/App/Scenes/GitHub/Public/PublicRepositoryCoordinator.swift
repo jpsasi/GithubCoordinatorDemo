@@ -35,7 +35,8 @@ class PublicRepositoryCoordinator: Coordinator {
         } else {
             tabBarController.viewControllers?.append(navController)
         }
-        viewController.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 0)
+        let image = UIImage(systemName: "list.dash")
+        viewController.tabBarItem = UITabBarItem(title: "Repository", image: image, tag: 0)
     }
 }
 

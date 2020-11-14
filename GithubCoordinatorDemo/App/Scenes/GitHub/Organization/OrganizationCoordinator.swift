@@ -35,7 +35,8 @@ class OrganizationCoordinator: Coordinator {
         } else {
             tabBarController.viewControllers?.append(navController)
         }
-        viewController.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 1)
+        let image = UIImage(systemName: "person.2")
+        viewController.tabBarItem = UITabBarItem(title: "Organization", image: image, tag: 1)
     }
 }
 

@@ -16,11 +16,14 @@ class PublicRepositoryViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "Repositories"
     }
     
     func updateTitle() {
-        title = "Repositories (\(viewModel.publicRepositories.count))"
+        if viewModel.publicRepositories.count > 0 {
+            navigationItem.title = "Repositories (\(viewModel.publicRepositories.count))"
+        } else {
+            navigationItem.title = "Repositories"
+        }
     }
 }
 

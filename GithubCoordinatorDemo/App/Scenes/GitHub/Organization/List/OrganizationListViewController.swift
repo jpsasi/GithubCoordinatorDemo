@@ -19,11 +19,14 @@ class OrganizationListViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()        
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "Organizations"
     }
     
     func updateTitle() {
-        title = "Organizations (\(viewModel.organizations.count))"
+        if viewModel.organizations.count > 0 {
+            navigationItem.title = "Organizations (\(viewModel.organizations.count))"
+        } else {
+            navigationItem.title = "Organizations"
+        }
     }
 }
 
