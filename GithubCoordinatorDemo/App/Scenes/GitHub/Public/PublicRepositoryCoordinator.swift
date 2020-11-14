@@ -31,7 +31,7 @@ class PublicRepositoryCoordinator: Coordinator {
         viewController.viewModel = viewModel
         viewModel.viewDelegate = viewController
         if tabBarController.viewControllers == nil {
-            tabBarController.viewControllers = [viewController]
+            tabBarController.viewControllers = [navController]
         } else {
             tabBarController.viewControllers?.append(navController)
         }

@@ -15,7 +15,6 @@ class PublicRepositoryViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.getPublicRepositoryList()
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Repositories"
     }
@@ -48,7 +47,7 @@ extension PublicRepositoryViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == viewModel.publicRepositories.count {
-//            viewModel.fetchPublicRepositoryList()
+            viewModel.getPublicRepositoryList()
         }
     }
 }

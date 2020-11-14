@@ -17,9 +17,7 @@ class OrganizationListViewController: UIViewController, Storyboarded {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        viewModel.fetchOrganizationList()
-        
+        super.viewDidLoad()        
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Organizations"
     }
@@ -53,7 +51,7 @@ extension OrganizationListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == viewModel.organizations.count {
-//            viewModel.fetchOrganizationList()
+            viewModel.fetchOrganizationList()
         }
     }
 }
