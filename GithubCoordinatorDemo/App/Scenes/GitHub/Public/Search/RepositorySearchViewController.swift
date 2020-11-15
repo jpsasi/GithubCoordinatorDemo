@@ -41,6 +41,7 @@ class RepositorySearchViewController: UIViewController, Storyboarded {
 
     private func configureUI() {
         navigationItem.titleView = searchBar
+        searchBar.becomeFirstResponder()
     }
     
     private func toggleEmptyView() {
@@ -58,21 +59,39 @@ extension RepositorySearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         toggleEmptyView()
+        if viewModel.searchResults.count > 0 {
+            return viewModel.searchResults.count + 1
+        }
         return viewModel.searchResults.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RepositorySearchResultCell", for: indexPath)
-        return cell
+        if indexPath.row == viewModel.searchResults.count {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingIndicatorTableViewCell", for: indexPath) as! LoadingIndicatorTableViewCell
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RepositorySearchResultCell", for: indexPath) as! PublicRepositoryTableViewCell
+            let repository = viewModel.searchResults[indexPath.row]
+            cell.repository = repository
+            return cell
+        }
     }
 }
 
 extension RepositorySearchViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if viewModel.searchResults.count > 0 && indexPath.row == viewModel.searchResults.count {
+            viewModel.fetchSearchRepository()
+        }
+    }
 }
 
 extension RepositorySearchViewController: RepositorySearchViewModelViewDelegate {
     
+    func repositorySearchViewModel(viewModel: RepositorySearchViewModel, didFinishSearchWithStatus status: Bool, errorMessage: String?) {
+        tableView.reloadData()
+    }
 }
 
 extension RepositorySearchViewController: UISearchResultsUpdating {
@@ -85,10 +104,20 @@ extension RepositorySearchViewController: UISearchResultsUpdating {
 extension RepositorySearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("text \(searchText)")
+        viewModel.queryString = searchText
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("search button clicked")
+        if let searchTextField = searchBar.value(forKey: "searchField") as? UITextField {
+            if let searchText = searchTextField.text, searchText.count > 2 {
+                viewModel.fetchSearchRepository()
+            }
+            searchBar.resignFirstResponder()
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("Cancel button tapped")
     }
 }

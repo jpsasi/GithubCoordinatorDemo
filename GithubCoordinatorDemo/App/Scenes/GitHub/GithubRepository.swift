@@ -44,6 +44,9 @@ class GithubRepository {
         }
     }
 
+    func fetchSearchRepository(searchQuery: String, perPage: Int, page: Int, completion: @escaping (Result<[Repository], NetworkError>) -> Void) {
+        webService.searchRepository(queryString: searchQuery, perPage: perPage, page: page, completion: completion)
+    }
 }
 
 //MARK: Private Methods

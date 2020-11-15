@@ -42,6 +42,7 @@
 		91FDA45E256113D20087BEB3 /* RepositorySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FDA45D256113D20087BEB3 /* RepositorySearchViewController.swift */; };
 		91FDA462256113F00087BEB3 /* RepositorySearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FDA461256113F00087BEB3 /* RepositorySearchViewModel.swift */; };
 		91FDA4652561140A0087BEB3 /* RepositorySearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91FDA4642561140A0087BEB3 /* RepositorySearchViewController.storyboard */; };
+		91FDA490256158040087BEB3 /* RespositorySearchNetworkResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FDA48F256158040087BEB3 /* RespositorySearchNetworkResponseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		91FDA45D256113D20087BEB3 /* RepositorySearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySearchViewController.swift; sourceTree = "<group>"; };
 		91FDA461256113F00087BEB3 /* RepositorySearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySearchViewModel.swift; sourceTree = "<group>"; };
 		91FDA4642561140A0087BEB3 /* RepositorySearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RepositorySearchViewController.storyboard; sourceTree = "<group>"; };
+		91FDA48F256158040087BEB3 /* RespositorySearchNetworkResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespositorySearchNetworkResponseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			children = (
 				910CED172556EF5E009CEF83 /* OrganizationNetworkResponseModel.swift */,
 				910CED1E2557C69E009CEF83 /* GithubAPIPagination.swift */,
+				91FDA48F256158040087BEB3 /* RespositorySearchNetworkResponseModel.swift */,
 			);
 			path = NetworkModel;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				910CED3425582009009CEF83 /* PublicRepositoryViewController.swift in Sources */,
 				9174B73E25564FAD0010EB86 /* Coordinator.swift in Sources */,
 				91FB577325564CAA00D82EEE /* SceneDelegate.swift in Sources */,
+				91FDA490256158040087BEB3 /* RespositorySearchNetworkResponseModel.swift in Sources */,
 				910CED43255822D3009CEF83 /* PublicRepositoryCoordinator.swift in Sources */,
 				9174B76B2556B9C80010EB86 /* NetworkResource.swift in Sources */,
 				910CED0C2556E428009CEF83 /* GithubRepository.swift in Sources */,

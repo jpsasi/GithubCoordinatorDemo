@@ -26,13 +26,69 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RepositorySearchResultCell" rowHeight="93" id="gid-mX-n8q">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="93"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RepositorySearchResultCell" rowHeight="65" id="gid-mX-n8q" customClass="PublicRepositoryTableViewCell" customModule="GithubCoordinatorDemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gid-mX-n8q" id="yg8-vW-9wr">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="93"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zo1-53-2l9">
+                                                    <rect key="frame" x="20" y="7.5" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="RMV-Yv-hqd"/>
+                                                        <constraint firstAttribute="width" constant="50" id="mFO-0K-mQq"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4PX-2G-Wa1">
+                                                    <rect key="frame" x="78" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wn-6T-ra0">
+                                                    <rect key="frame" x="78" y="33" width="320" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4Wn-6T-ra0" firstAttribute="top" secondItem="4PX-2G-Wa1" secondAttribute="bottom" constant="1" id="GxQ-jV-HE8"/>
+                                                <constraint firstItem="4Wn-6T-ra0" firstAttribute="leading" secondItem="Zo1-53-2l9" secondAttribute="trailing" constant="8" symbolic="YES" id="Sm4-5M-u7i"/>
+                                                <constraint firstItem="Zo1-53-2l9" firstAttribute="leading" secondItem="yg8-vW-9wr" secondAttribute="leading" constant="20" symbolic="YES" id="Tjq-za-B6x"/>
+                                                <constraint firstItem="4PX-2G-Wa1" firstAttribute="top" secondItem="yg8-vW-9wr" secondAttribute="top" constant="11" id="cpi-SZ-swz"/>
+                                                <constraint firstAttribute="bottom" secondItem="4Wn-6T-ra0" secondAttribute="bottom" constant="12.5" id="eFk-FG-JZe"/>
+                                                <constraint firstItem="4PX-2G-Wa1" firstAttribute="leading" secondItem="Zo1-53-2l9" secondAttribute="trailing" constant="8" symbolic="YES" id="mV2-pB-dfb"/>
+                                                <constraint firstItem="Zo1-53-2l9" firstAttribute="centerY" secondItem="yg8-vW-9wr" secondAttribute="centerY" id="r84-FY-Nmy"/>
+                                                <constraint firstAttribute="trailing" secondItem="4Wn-6T-ra0" secondAttribute="trailing" constant="16" id="rRM-Qx-dWf"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="4Wn-6T-ra0" id="13f-4H-TAl"/>
+                                            <outlet property="repositoryNameLabel" destination="4PX-2G-Wa1" id="J85-Iu-Cwk"/>
+                                            <outlet property="thumbnailImageView" destination="Zo1-53-2l9" id="sot-7q-o2I"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LoadingIndicatorTableViewCell" rowHeight="65" id="VNC-p4-7VA" customClass="LoadingIndicatorTableViewCell" customModule="GithubCoordinatorDemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="93" width="414" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VNC-p4-7VA" id="Bhi-Id-H4N">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="WqE-qc-66F">
+                                                    <rect key="frame" x="197" y="22.5" width="20" height="20"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="WqE-qc-66F" firstAttribute="centerY" secondItem="Bhi-Id-H4N" secondAttribute="centerY" id="KCk-3k-VcD"/>
+                                                <constraint firstItem="WqE-qc-66F" firstAttribute="centerX" secondItem="Bhi-Id-H4N" secondAttribute="centerX" id="WvH-BG-I3W"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="activityIndicatorView" destination="WqE-qc-66F" id="RFq-ni-aWc"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -65,6 +121,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
