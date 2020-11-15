@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Repository Search View Controller-->
+        <scene sceneID="zU9-LF-NLe">
+            <objects>
+                <viewController storyboardIdentifier="RepositorySearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FU6-vm-E2z" customClass="RepositorySearchViewController" customModule="GithubCoordinatorDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MiP-kV-TUi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Empty Results" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzv-Bh-Rn9">
+                                <rect key="frame" x="16" y="435.5" width="382" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hfS-BX-JZY">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RepositorySearchResultCell" rowHeight="93" id="gid-mX-n8q">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="93"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gid-mX-n8q" id="yg8-vW-9wr">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="93"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="FU6-vm-E2z" id="epf-rm-nLy"/>
+                                    <outlet property="delegate" destination="FU6-vm-E2z" id="6Wv-Qq-c0K"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dyZ-Wg-sHI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dyZ-Wg-sHI" firstAttribute="trailing" secondItem="yzv-Bh-Rn9" secondAttribute="trailing" constant="16" id="03F-cx-Y4e"/>
+                            <constraint firstItem="yzv-Bh-Rn9" firstAttribute="centerY" secondItem="MiP-kV-TUi" secondAttribute="centerY" id="AkZ-tv-oUp"/>
+                            <constraint firstAttribute="bottom" secondItem="hfS-BX-JZY" secondAttribute="bottom" id="B9n-H0-8GW"/>
+                            <constraint firstItem="dyZ-Wg-sHI" firstAttribute="trailing" secondItem="hfS-BX-JZY" secondAttribute="trailing" id="VzC-Zy-H8C"/>
+                            <constraint firstItem="yzv-Bh-Rn9" firstAttribute="leading" secondItem="dyZ-Wg-sHI" secondAttribute="leading" constant="16" id="dW2-ZL-8ec"/>
+                            <constraint firstItem="hfS-BX-JZY" firstAttribute="top" secondItem="MiP-kV-TUi" secondAttribute="top" id="nRs-1m-Hjx"/>
+                            <constraint firstItem="yzv-Bh-Rn9" firstAttribute="centerX" secondItem="MiP-kV-TUi" secondAttribute="centerX" id="wZz-FR-fTV"/>
+                            <constraint firstItem="hfS-BX-JZY" firstAttribute="leading" secondItem="dyZ-Wg-sHI" secondAttribute="leading" id="yxY-FL-VoS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emptyLabel" destination="yzv-Bh-Rn9" id="cBN-U5-T6z"/>
+                        <outlet property="tableView" destination="hfS-BX-JZY" id="enz-tN-YeF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zhf-aJ-2nK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="179.71014492753625" y="142.63392857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

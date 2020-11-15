@@ -10,6 +10,7 @@ import UIKit
 class PublicRepositoryCoordinator: Coordinator {
     
     let tabBarController: UITabBarController
+    var navigationController: UINavigationController!
     let repository: GithubRepository
     let dataStore: GithubDataStore
     var childCoordinators: [Coordinator] = []
@@ -23,7 +24,7 @@ class PublicRepositoryCoordinator: Coordinator {
 
     func start() {
         let viewController = PublicRepositoryViewController.instantiate()
-        let navController = UINavigationController(rootViewController: viewController)
+        navigationController = UINavigationController(rootViewController: viewController)
         let viewModel = PublicRepositoryViewModel(withViewDelegate: viewController,
                                                   coordinatorDelegate: self,
                                                   repository: repository,
@@ -31,15 +32,32 @@ class PublicRepositoryCoordinator: Coordinator {
         viewController.viewModel = viewModel
         viewModel.viewDelegate = viewController
         if tabBarController.viewControllers == nil {
-            tabBarController.viewControllers = [navController]
+            tabBarController.viewControllers = [navigationController]
         } else {
-            tabBarController.viewControllers?.append(navController)
+            tabBarController.viewControllers?.append(navigationController)
         }
         let image = UIImage(systemName: "list.dash")
         viewController.tabBarItem = UITabBarItem(title: "Repository", image: image, tag: 0)
+        
+        navigationController.navigationBar.standardAppearance = navigationBarAppearance()
+        navigationController.navigationBar.compactAppearance = navigationBarAppearance()
+    }
+    
+    func showSearch() {
+        let searchController = RepositorySearchViewController.instantiate()
+        let viewModel = RepositorySearchViewModel(withViewDelegate: searchController, coordinatorDelegate: self, repository: repository)
+        searchController.viewModel = viewModel
+        navigationController.pushViewController(searchController, animated: true)
     }
 }
 
 extension PublicRepositoryCoordinator: PublicRepositoryViewModelCoordinatorDelegate {
+    
+    func repositoryViewModelDidSelectSearch(viewModel: PublicRepositoryViewModel) {
+        showSearch()
+    }
+}
+
+extension PublicRepositoryCoordinator: RepositorySearchViewModelCoordinatorDelegate {
     
 }

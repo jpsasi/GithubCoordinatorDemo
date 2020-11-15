@@ -57,7 +57,6 @@ enum GithubNetworkResource: NetworkResource {
 
 class GithubWebService {
     let webService: WebService
-    var organizationPagination: GithubAPIPagination?
     
     init(webService: WebService = WebService()) {
         self.webService = webService

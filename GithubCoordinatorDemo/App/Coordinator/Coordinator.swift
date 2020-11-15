@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol Coordinator: class {
     var childCoordinators: [Coordinator] { get set }
@@ -31,5 +32,16 @@ extension Coordinator {
                 break
             }
         }
+    }
+    
+    func navigationBarAppearance() -> UINavigationBarAppearance {
+        let navigationBarAppearance = UINavigationBarAppearance()
+        let backButtonImage = UIImage(named: "navigationBack")!
+        navigationBarAppearance.setBackIndicatorImage(backButtonImage, transitionMaskImage: backButtonImage)
+        
+        let barButtonAppearance = UIBarButtonItemAppearance()
+        barButtonAppearance.normal.titlePositionAdjustment = UIOffset(horizontal: -1000, vertical: 0)
+        navigationBarAppearance.backButtonAppearance = barButtonAppearance
+        return navigationBarAppearance
     }
 }

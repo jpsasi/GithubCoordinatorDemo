@@ -14,20 +14,29 @@ class PublicRepositoryViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationController?.navigationBar.prefersLargeTitles = true
+        configureUI()
     }
     
-    func updateTitle() {
+    private func configureUI() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(onSearch(sender:)))
+    }
+
+    private func updateTitle() {
         if viewModel.publicRepositories.count > 0 {
             navigationItem.title = "Repositories (\(viewModel.publicRepositories.count))"
         } else {
             navigationItem.title = "Repositories"
         }
     }
+    
+    @objc func onSearch(sender: AnyObject) {
+        viewModel.onSearch()
+    }
 }
 
 extension PublicRepositoryViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.publicRepositories.count + 1
     }
@@ -57,7 +66,7 @@ extension PublicRepositoryViewController: UITableViewDelegate {
 
 extension PublicRepositoryViewController: PublicRepositoryViewModelViewDelegate {
     
-    func getPublicRepositoryListDidFinish(status: Bool, errorMessage: String?) {
+    func repositoryViewModel(viewModel: PublicRepositoryViewModel, didFinishLoadingWithStatus status: Bool, errorMessage: String?) {
         if let errorMessage = errorMessage {
             showAlert(message: errorMessage)
         } else {

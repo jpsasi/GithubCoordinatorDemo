@@ -39,6 +39,9 @@
 		91FB577A25564CAC00D82EEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91FB577925564CAC00D82EEE /* Assets.xcassets */; };
 		91FB577D25564CAC00D82EEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91FB577B25564CAC00D82EEE /* LaunchScreen.storyboard */; };
 		91FB578E25564E7100D82EEE /* RepositoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FB578D25564E7100D82EEE /* RepositoryDetailViewController.swift */; };
+		91FDA45E256113D20087BEB3 /* RepositorySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FDA45D256113D20087BEB3 /* RepositorySearchViewController.swift */; };
+		91FDA462256113F00087BEB3 /* RepositorySearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FDA461256113F00087BEB3 /* RepositorySearchViewModel.swift */; };
+		91FDA4652561140A0087BEB3 /* RepositorySearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91FDA4642561140A0087BEB3 /* RepositorySearchViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +79,9 @@
 		91FB577C25564CAC00D82EEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91FB577E25564CAC00D82EEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91FB578D25564E7100D82EEE /* RepositoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailViewController.swift; sourceTree = "<group>"; };
+		91FDA45D256113D20087BEB3 /* RepositorySearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySearchViewController.swift; sourceTree = "<group>"; };
+		91FDA461256113F00087BEB3 /* RepositorySearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySearchViewModel.swift; sourceTree = "<group>"; };
+		91FDA4642561140A0087BEB3 /* RepositorySearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RepositorySearchViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +137,7 @@
 			children = (
 				910CED42255822D3009CEF83 /* PublicRepositoryCoordinator.swift */,
 				910CED2F25581FD3009CEF83 /* List */,
+				91FDA45C256113950087BEB3 /* Search */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -289,6 +296,16 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		91FDA45C256113950087BEB3 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				91FDA461256113F00087BEB3 /* RepositorySearchViewModel.swift */,
+				91FDA45D256113D20087BEB3 /* RepositorySearchViewController.swift */,
+				91FDA4642561140A0087BEB3 /* RepositorySearchViewController.storyboard */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -346,6 +363,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91FDA4652561140A0087BEB3 /* RepositorySearchViewController.storyboard in Resources */,
 				9174B756255657740010EB86 /* OrganizationListViewController.storyboard in Resources */,
 				91FB577D25564CAC00D82EEE /* LaunchScreen.storyboard in Resources */,
 				910CED372558201A009CEF83 /* PublicRepositoryViewController.storyboard in Resources */,
@@ -362,9 +380,11 @@
 			files = (
 				910CED3125581FE6009CEF83 /* PublicRepositoryViewModel.swift in Sources */,
 				9174B7672556B90D0010EB86 /* WebService.swift in Sources */,
+				91FDA45E256113D20087BEB3 /* RepositorySearchViewController.swift in Sources */,
 				9174B74F255651F60010EB86 /* OrganizationListViewController.swift in Sources */,
 				9174B75A2556588A0010EB86 /* GithubCoordinator.swift in Sources */,
 				910CED4B25582BD6009CEF83 /* PublicRepositoryTableViewCell.swift in Sources */,
+				91FDA462256113F00087BEB3 /* RepositorySearchViewModel.swift in Sources */,
 				9174B74B255651D70010EB86 /* RepositoryDetailViewModel.swift in Sources */,
 				9174B741255650F20010EB86 /* AppCoordinator.swift in Sources */,
 				91FB577125564CAA00D82EEE /* AppDelegate.swift in Sources */,

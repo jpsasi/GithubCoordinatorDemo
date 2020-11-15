@@ -8,11 +8,11 @@
 import Foundation
 
 protocol PublicRepositoryViewModelCoordinatorDelegate: class {
-    
+    func repositoryViewModelDidSelectSearch(viewModel: PublicRepositoryViewModel)
 }
 
 protocol PublicRepositoryViewModelViewDelegate: class {
-    func getPublicRepositoryListDidFinish(status: Bool, errorMessage: String?)
+    func repositoryViewModel(viewModel: PublicRepositoryViewModel, didFinishLoadingWithStatus status: Bool, errorMessage: String?)
 }
 
 class PublicRepositoryViewModel {
@@ -45,11 +45,15 @@ class PublicRepositoryViewModel {
         repository.fetchPublicRepositoryList { [weak self] (success, error) in
             guard let self = self else { return }
             if success {
-                self.viewDelegate?.getPublicRepositoryListDidFinish(status: true, errorMessage: nil)
+                self.viewDelegate?.repositoryViewModel(viewModel: self, didFinishLoadingWithStatus: true, errorMessage: nil)
             } else {
-                self.viewDelegate?.getPublicRepositoryListDidFinish(status: false, errorMessage: error?.localizedDescription)
+                self.viewDelegate?.repositoryViewModel(viewModel: self, didFinishLoadingWithStatus: false, errorMessage: error?.localizedDescription)
             }
         }
+    }
+    
+    func onSearch() {
+        coordinatorDelegate?.repositoryViewModelDidSelectSearch(viewModel: self)
     }
 
 }

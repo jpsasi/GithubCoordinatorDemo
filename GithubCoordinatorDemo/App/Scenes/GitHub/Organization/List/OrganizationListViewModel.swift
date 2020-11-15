@@ -16,8 +16,8 @@ protocol OrganizationListViewModelViewDelegate: class {
 }
 
 class OrganizationListViewModel {
-    weak var coordinatorDelegate: OrganizationListViewModelCoordinatorDelegate?
     weak var viewDelegate: OrganizationListViewModelViewDelegate?
+    weak var coordinatorDelegate: OrganizationListViewModelCoordinatorDelegate?
     let repository: GithubRepository
     let dataStore: GithubDataStore
     var isFetching: Bool
