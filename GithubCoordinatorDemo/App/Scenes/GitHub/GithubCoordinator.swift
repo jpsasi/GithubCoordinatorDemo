@@ -30,7 +30,7 @@ class GithubCoordinator: Coordinator {
     }
     
     func start() {
-        let publicRepositoryCoordinator = PublicRepositoryCoordinator(withTabBarController: tabBarController, repository: repository, dataStore: dataStore)
+        let publicRepositoryCoordinator = RepositoryCoordinator(withTabBarController: tabBarController, repository: repository, dataStore: dataStore)
         addChildCoordinator(publicRepositoryCoordinator)
         publicRepositoryCoordinator.start()
 

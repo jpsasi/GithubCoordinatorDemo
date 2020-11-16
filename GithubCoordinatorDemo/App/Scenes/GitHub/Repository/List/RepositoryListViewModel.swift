@@ -1,5 +1,5 @@
 //
-//  PublicRepositoryViewModel.swift
+//  RepositoryListViewModel.swift
 //  GithubCoordinatorDemo
 //
 //  Created by Sasikumar JP on 08/11/20.
@@ -7,17 +7,18 @@
 
 import Foundation
 
-protocol PublicRepositoryViewModelCoordinatorDelegate: class {
-    func repositoryViewModelDidSelectSearch(viewModel: PublicRepositoryViewModel)
+protocol RepositoryViewModelCoordinatorDelegate: class {
+    func repositoryViewModelDidSelectSearch(viewModel: RepositoryListViewModel)
+    func repositoryViewModel(viewModel: RepositoryListViewModel, didSelect repository: Repository)
 }
 
-protocol PublicRepositoryViewModelViewDelegate: class {
-    func repositoryViewModel(viewModel: PublicRepositoryViewModel, didFinishLoadingWithStatus status: Bool, errorMessage: String?)
+protocol RepositoryViewModelViewDelegate: class {
+    func repositoryViewModel(viewModel: RepositoryListViewModel, didFinishLoadingWithStatus status: Bool, errorMessage: String?)
 }
 
-class PublicRepositoryViewModel {
-    weak var viewDelegate: PublicRepositoryViewModelViewDelegate?
-    weak var coordinatorDelegate: PublicRepositoryViewModelCoordinatorDelegate?
+class RepositoryListViewModel {
+    weak var viewDelegate: RepositoryViewModelViewDelegate?
+    weak var coordinatorDelegate: RepositoryViewModelCoordinatorDelegate?
     let repository: GithubRepository
     let dataStore: GithubDataStore
     var isFetching: Bool
@@ -26,8 +27,8 @@ class PublicRepositoryViewModel {
         return dataStore.publicRepositories
     }
     
-    init(withViewDelegate viewDelegate: PublicRepositoryViewModelViewDelegate,
-         coordinatorDelegate: PublicRepositoryViewModelCoordinatorDelegate,
+    init(withViewDelegate viewDelegate: RepositoryViewModelViewDelegate,
+         coordinatorDelegate: RepositoryViewModelCoordinatorDelegate,
          repository: GithubRepository, dataStore: GithubDataStore) {
         self.viewDelegate = viewDelegate
         self.coordinatorDelegate = coordinatorDelegate
@@ -56,4 +57,7 @@ class PublicRepositoryViewModel {
         coordinatorDelegate?.repositoryViewModelDidSelectSearch(viewModel: self)
     }
 
+    func onRepositoryDetail(repository: Repository) {
+        coordinatorDelegate?.repositoryViewModel(viewModel: self, didSelect: repository)
+    }
 }

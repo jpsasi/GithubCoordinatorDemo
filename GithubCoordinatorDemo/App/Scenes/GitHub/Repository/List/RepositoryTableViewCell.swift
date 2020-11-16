@@ -1,5 +1,5 @@
 //
-//  PublicRepositoryTableViewCell.swift
+//  RepositoryTableViewCell.swift
 //  GithubCoordinatorDemo
 //
 //  Created by Sasikumar JP on 08/11/20.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PublicRepositoryTableViewCell: UITableViewCell {
+class RepositoryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var repositoryNameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!

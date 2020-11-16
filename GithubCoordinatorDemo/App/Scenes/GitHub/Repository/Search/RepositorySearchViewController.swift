@@ -103,7 +103,7 @@ extension RepositorySearchViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingIndicatorTableViewCell", for: indexPath) as! LoadingIndicatorTableViewCell
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "RepositorySearchResultCell", for: indexPath) as! PublicRepositoryTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RepositorySearchResultCell", for: indexPath) as! RepositoryTableViewCell
             let repository = viewModel.searchResults[indexPath.row]
             cell.repository = repository
             cell.accessoryType = .disclosureIndicator
