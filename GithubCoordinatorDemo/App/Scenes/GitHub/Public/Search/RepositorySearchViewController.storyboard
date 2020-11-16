@@ -16,13 +16,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Hsd-w0-nlM">
+                                <rect key="frame" x="197" y="385.5" width="20" height="20"/>
+                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Empty Results" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzv-Bh-Rn9">
                                 <rect key="frame" x="16" y="435.5" width="382" height="25.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hfS-BX-JZY">
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hfS-BX-JZY">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -101,8 +104,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="dyZ-Wg-sHI" firstAttribute="trailing" secondItem="yzv-Bh-Rn9" secondAttribute="trailing" constant="16" id="03F-cx-Y4e"/>
+                            <constraint firstItem="yzv-Bh-Rn9" firstAttribute="top" secondItem="Hsd-w0-nlM" secondAttribute="bottom" constant="30" id="9Oi-e7-kLh"/>
                             <constraint firstItem="yzv-Bh-Rn9" firstAttribute="centerY" secondItem="MiP-kV-TUi" secondAttribute="centerY" id="AkZ-tv-oUp"/>
                             <constraint firstAttribute="bottom" secondItem="hfS-BX-JZY" secondAttribute="bottom" id="B9n-H0-8GW"/>
+                            <constraint firstItem="Hsd-w0-nlM" firstAttribute="centerX" secondItem="MiP-kV-TUi" secondAttribute="centerX" id="TRJ-ug-Hva"/>
                             <constraint firstItem="dyZ-Wg-sHI" firstAttribute="trailing" secondItem="hfS-BX-JZY" secondAttribute="trailing" id="VzC-Zy-H8C"/>
                             <constraint firstItem="yzv-Bh-Rn9" firstAttribute="leading" secondItem="dyZ-Wg-sHI" secondAttribute="leading" constant="16" id="dW2-ZL-8ec"/>
                             <constraint firstItem="hfS-BX-JZY" firstAttribute="top" secondItem="MiP-kV-TUi" secondAttribute="top" id="nRs-1m-Hjx"/>
@@ -112,6 +117,7 @@
                     </view>
                     <connections>
                         <outlet property="emptyLabel" destination="yzv-Bh-Rn9" id="cBN-U5-T6z"/>
+                        <outlet property="loadingIndicator" destination="Hsd-w0-nlM" id="aND-6S-bH0"/>
                         <outlet property="tableView" destination="hfS-BX-JZY" id="enz-tN-YeF"/>
                     </connections>
                 </viewController>

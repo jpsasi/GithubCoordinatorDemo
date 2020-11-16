@@ -7,15 +7,27 @@
 
 import UIKit
 
+enum LoadingState {
+    case initial, loading, loaded
+}
+
 class RepositorySearchViewController: UIViewController, Storyboarded {
 
     var viewModel: RepositorySearchViewModel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emptyLabel: UILabel!
-
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    var loadingState: LoadingState = .initial {
+        didSet {
+            updateLoadingState()
+        }
+    }
+    
     lazy var searchBar:UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.delegate = self
+        searchBar.showsCancelButton = true
+        searchBar.autocapitalizationType = .none
         return searchBar
     }()
 
@@ -42,9 +54,10 @@ class RepositorySearchViewController: UIViewController, Storyboarded {
     private func configureUI() {
         navigationItem.titleView = searchBar
         searchBar.becomeFirstResponder()
+        updateLoadingState()
     }
     
-    private func toggleEmptyView() {
+    private func updateEmptyViewState() {
         if viewModel.searchResults.count > 0 {
             emptyLabel.isHidden = true
             tableView.isHidden = false
@@ -53,12 +66,27 @@ class RepositorySearchViewController: UIViewController, Storyboarded {
             tableView.isHidden = true
         }
     }
+    
+    private func updateLoadingState() {
+        switch loadingState {
+        case .initial:
+            emptyLabel.isHidden = false
+            tableView.isHidden = true
+            loadingIndicator.isHidden = true
+        case .loading:
+            emptyLabel.isHidden = true
+            tableView.isHidden = true
+            loadingIndicator.isHidden = false
+        case .loaded:
+            updateEmptyViewState()
+            loadingIndicator.isHidden = true
+        }
+    }
 }
 
 extension RepositorySearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        toggleEmptyView()
         if viewModel.searchResults.count > 0 {
             return viewModel.searchResults.count + 1
         }
@@ -73,6 +101,7 @@ extension RepositorySearchViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "RepositorySearchResultCell", for: indexPath) as! PublicRepositoryTableViewCell
             let repository = viewModel.searchResults[indexPath.row]
             cell.repository = repository
+            cell.accessoryType = .disclosureIndicator
             return cell
         }
     }
@@ -90,6 +119,7 @@ extension RepositorySearchViewController: UITableViewDelegate {
 extension RepositorySearchViewController: RepositorySearchViewModelViewDelegate {
     
     func repositorySearchViewModel(viewModel: RepositorySearchViewModel, didFinishSearchWithStatus status: Bool, errorMessage: String?) {
+        loadingState = .loaded
         tableView.reloadData()
     }
 }
@@ -108,16 +138,18 @@ extension RepositorySearchViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("search button clicked")
         if let searchTextField = searchBar.value(forKey: "searchField") as? UITextField {
             if let searchText = searchTextField.text, searchText.count > 2 {
+                loadingState = .loading
                 viewModel.fetchSearchRepository()
             }
-            searchBar.resignFirstResponder()
         }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        print("Cancel button tapped")
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
     }
 }

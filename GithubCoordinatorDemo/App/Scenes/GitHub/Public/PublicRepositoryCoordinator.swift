@@ -45,9 +45,10 @@ class PublicRepositoryCoordinator: Coordinator {
     
     func showSearch() {
         let searchController = RepositorySearchViewController.instantiate()
+        let searchNavController = UINavigationController(rootViewController: searchController)
         let viewModel = RepositorySearchViewModel(withViewDelegate: searchController, coordinatorDelegate: self, repository: repository)
         searchController.viewModel = viewModel
-        navigationController.pushViewController(searchController, animated: true)
+        self.navigationController.present(searchNavController, animated: true, completion: nil)
     }
 }
 
