@@ -42,6 +42,11 @@ class RepositorySearchViewController: UIViewController, Storyboarded {
         configureUI()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.viewModel.onDismissRepositorySearch()
+    }
+    
     override var hidesBottomBarWhenPushed: Bool {
         get {
             return navigationController?.topViewController == self

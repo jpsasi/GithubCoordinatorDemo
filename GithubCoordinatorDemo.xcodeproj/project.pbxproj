@@ -43,6 +43,7 @@
 		91FDA462256113F00087BEB3 /* RepositorySearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FDA461256113F00087BEB3 /* RepositorySearchViewModel.swift */; };
 		91FDA4652561140A0087BEB3 /* RepositorySearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91FDA4642561140A0087BEB3 /* RepositorySearchViewController.storyboard */; };
 		91FDA490256158040087BEB3 /* RespositorySearchNetworkResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FDA48F256158040087BEB3 /* RespositorySearchNetworkResponseModel.swift */; };
+		91FDA4952562618E0087BEB3 /* RepositorySearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FDA4942562618E0087BEB3 /* RepositorySearchCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		91FDA461256113F00087BEB3 /* RepositorySearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySearchViewModel.swift; sourceTree = "<group>"; };
 		91FDA4642561140A0087BEB3 /* RepositorySearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RepositorySearchViewController.storyboard; sourceTree = "<group>"; };
 		91FDA48F256158040087BEB3 /* RespositorySearchNetworkResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespositorySearchNetworkResponseModel.swift; sourceTree = "<group>"; };
+		91FDA4942562618E0087BEB3 /* RepositorySearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySearchCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,6 +304,7 @@
 		91FDA45C256113950087BEB3 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				91FDA4942562618E0087BEB3 /* RepositorySearchCoordinator.swift */,
 				91FDA461256113F00087BEB3 /* RepositorySearchViewModel.swift */,
 				91FDA45D256113D20087BEB3 /* RepositorySearchViewController.swift */,
 				91FDA4642561140A0087BEB3 /* RepositorySearchViewController.storyboard */,
@@ -383,6 +386,7 @@
 			files = (
 				910CED3125581FE6009CEF83 /* PublicRepositoryViewModel.swift in Sources */,
 				9174B7672556B90D0010EB86 /* WebService.swift in Sources */,
+				91FDA4952562618E0087BEB3 /* RepositorySearchCoordinator.swift in Sources */,
 				91FDA45E256113D20087BEB3 /* RepositorySearchViewController.swift in Sources */,
 				9174B74F255651F60010EB86 /* OrganizationListViewController.swift in Sources */,
 				9174B75A2556588A0010EB86 /* GithubCoordinator.swift in Sources */,

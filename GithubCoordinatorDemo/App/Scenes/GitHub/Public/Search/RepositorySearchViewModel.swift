@@ -8,7 +8,7 @@
 import Foundation
 
 protocol RepositorySearchViewModelCoordinatorDelegate: class {
-    
+    func repositorySearchViewModelDidFinish(viewModel: RepositorySearchViewModel)
 }
 
 protocol RepositorySearchViewModelViewDelegate: class {
@@ -59,5 +59,9 @@ class RepositorySearchViewModel {
             }
             self.isFetching = false
         }
+    }
+    
+    func onDismissRepositorySearch() {
+        coordinatorDelegate?.repositorySearchViewModelDidFinish(viewModel: self)
     }
 }
