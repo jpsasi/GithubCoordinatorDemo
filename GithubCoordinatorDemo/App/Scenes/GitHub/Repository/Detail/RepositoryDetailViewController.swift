@@ -10,7 +10,7 @@ import UIKit
 class RepositoryDetailViewController: UIViewController, Storyboarded {
 
     var viewModel: RepositoryDetailViewModel!
-    
+        
     override var hidesBottomBarWhenPushed: Bool {
         get {
             return navigationController?.topViewController == self

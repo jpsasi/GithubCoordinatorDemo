@@ -44,7 +44,6 @@ class RepositorySearchViewController: UIViewController, Storyboarded {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        self.viewModel.onDismissRepositorySearch()
     }
     
     override var hidesBottomBarWhenPushed: Bool {
@@ -119,6 +118,11 @@ extension RepositorySearchViewController: UITableViewDelegate {
             viewModel.fetchSearchRepository()
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let repository = viewModel.searchResults[indexPath.row]
+        viewModel.onRepositoryDetail(repository: repository)
+    }
 }
 
 extension RepositorySearchViewController: RepositorySearchViewModelViewDelegate {
@@ -152,7 +156,9 @@ extension RepositorySearchViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {
+            self.viewModel.onDismissRepositorySearch()
+        })
     }
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {

@@ -45,7 +45,7 @@ class RepositoryCoordinator: NSObject, Coordinator {
     }
     
     private func showSearch() {
-        let searchCoordinator = RepositorySearchCoordinator(navigationController: navigationController, coordinatorDelegate: self, repository: repository)
+        let searchCoordinator = RepositorySearchCoordinator(baseViewController: navigationController, coordinatorDelegate: self, repository: repository)
         addChildCoordinator(searchCoordinator)
         searchCoordinator.start()
     }
@@ -92,11 +92,12 @@ extension RepositoryCoordinator: RepositorySearchCoordinatorDelegate {
     func repositorySearchCoordinatorDidFinish(coordinator: RepositorySearchCoordinator) {
         removeChildCoordinator(coordinator)
     }
+    
 }
 
 extension RepositoryCoordinator: RepositoryDetailCoordinatorDelegate {
     
     func repositoryDetailCoordinatorDidFinish(coordinator: RepositoryDetailCoordinator) {
         removeChildCoordinator(coordinator)
-    }
+    }    
 }
